@@ -29,14 +29,14 @@ function gameboardFactory(width = 10, height = 10) {
         placeShip: (ship, coord, rotated) => {
             for (let i = 0; i < ship.get.length(); i++) {
                 let j = rotated ?
-                    _get2DIndex(coord[0], coord[1] + i) :
-                    _get2DIndex(coord[0] + i, coord[1]);
+                    get2DIndex(width, coord[0], coord[1] + i) :
+                    get2DIndex(width, coord[0] + i, coord[1]);
                 if (_boardArray[j]) return false;
             }
             for (let i = 0; i < ship.get.length(); i++) {
                 let j = rotated ?
-                    _get2DIndex(coord[0], coord[1] + i) :
-                    _get2DIndex(coord[0] + i, coord[1]);
+                    get2DIndex(width, coord[0], coord[1] + i) :
+                    get2DIndex(width, coord[0] + i, coord[1]);
                 _boardArray[j] = ship;
             }
 
@@ -44,7 +44,7 @@ function gameboardFactory(width = 10, height = 10) {
             return true;
         },
         receiveAttack: (coord) => {
-            const i = _get2DIndex(coord);
+            const i = get2DIndex(width, coord);
 
             if (_hitArray[i]) return false;
             _hitArray[i] = true;
@@ -61,14 +61,6 @@ function gameboardFactory(width = 10, height = 10) {
         isGameOver: () => { return _shipsRemaining <= 0 }
     }
     return gameboard;
-    //private
-    function _get2DIndex(a, b) {
-        if (typeof (a) === typeof ([]) &&
-            (b === undefined)) {
-            return a[0] * width + a[1];
-        }
-        else return a * width + b;
-    }
 }
 
 function playerFactory(name) {
@@ -94,5 +86,13 @@ function playerFactory(name) {
     }
     return player;
 }
-//WORKING HERE -- JUST STARTED MAKING PLAYER FACTORY
-export { shipFactory, gameboardFactory, playerFactory};
+
+function get2DIndex(rowLength = 10, x, y) {
+    if((x[0] || x) >= rowLength){
+        throw new Error('index out of bounds of rowLength')
+    }
+    if (typeof (x) === typeof ([])) return x[0] * rowLength + x[1];
+
+    else return x * rowLength + y;
+}
+export { shipFactory, gameboardFactory, playerFactory, get2DIndex};

@@ -1,4 +1,4 @@
-import { shipFactory, gameboardFactory, playerFactory } from "../obj-factories";
+import { shipFactory, gameboardFactory, playerFactory, get2DIndex } from "../obj-factories";
 
 test('ShipFactory', () => {
     const ship = shipFactory('testName', 3);
@@ -45,4 +45,22 @@ test('playerFactory', () => {
     expect(player.get.wins()).toBe(2);
     expect(player.get.streak()).toBe(0);
     expect(player.get.games()).toBe(3);
+})
+test('get2DIndex',()=>{
+    const array2D = ['a0','a1','a2','b0','b1','b2','c0','c1','c2'];
+    function _test2D(x,y){
+        return array2D[get2DIndex(rowLength, x, y)];
+    }
+    const rowLength = 3;
+    expect(_test2D(0,0)).toBe('a0');
+    expect(_test2D([0,0])).toBe('a0');
+    expect(_test2D(0,1)).toBe('a1');
+    expect(_test2D([0,1])).toBe('a1');
+    expect(_test2D(1,0)).toBe('b0');
+    expect(_test2D([1,0])).toBe('b0');
+    expect(_test2D(2,2)).toBe('c2');
+    expect(_test2D([2,2])).toBe('c2');
+    expect(_test2D(2,1)).toBe('c1');
+    expect(_test2D([2,1])).toBe('c1');
+    expect(_test2D([0,0],1)).toBe('a0');
 })
