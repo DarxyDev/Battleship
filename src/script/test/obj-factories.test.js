@@ -12,11 +12,16 @@ test('ShipFactory', () => {
 })
 
 test('gameboardFactory', () => {
-    const gameboard = gameboardFactory(7, 7);
+    const gameboard = gameboardFactory(10, 10);
     const ship = shipFactory('testName', 3);
 
     expect(gameboard.placeShip(ship, [0, 0], false)).toBe(true);
     expect(gameboard.placeShip(ship, [0, 0], false)).toBe(false);
+    expect(gameboard.placeShip(ship, [0, 0], true)).toBe(false);
+    expect(gameboard.placeShip(ship, [2, 0], false)).toBe(false);
+    expect(gameboard.placeShip(ship, [9, 9], false)).toBe(false);
+    expect(gameboard.placeShip(ship, [11, 11], false)).toBe(false);
+    expect(gameboard.placeShip(ship, [-1, -1], false)).toBe(false);
 
     expect(gameboard.get.shipsRemaining()).toBe(1);
     expect(gameboard.receiveAttack([0, 0])).toBe('hit');
@@ -52,6 +57,11 @@ test('get2DIndex',()=>{
         return array2D[get2DIndex(rowLength, x, y)];
     }
     const rowLength = 3;
+    
+    expect(get2DIndex(rowLength,[0,2])).toBe(2);
+    expect(get2DIndex(rowLength,[2,2])).toBe(8);
+    expect(get2DIndex(rowLength,2,2)).toBe(8);
+    expect(get2DIndex(rowLength,[3,2])instanceof Error).toBe(true);
     expect(_test2D(0,0)).toBe('a0');
     expect(_test2D([0,0])).toBe('a0');
     expect(_test2D(0,1)).toBe('a1');

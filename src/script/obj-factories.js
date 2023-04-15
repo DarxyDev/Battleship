@@ -24,14 +24,18 @@ function gameboardFactory(width = 10, height = 10) {
 
     const gameboard = {
         get: {
-            shipsRemaining: () => { return _shipsRemaining }
+            shipsRemaining: () => { return _shipsRemaining },
+            boardArray: () => { return _boardArray },
+            _hitArray: () => { return _hitArray },
         },
         placeShip: (ship, coord, rotated) => {
             for (let i = 0; i < ship.get.length(); i++) {
                 let j = rotated ?
                     get2DIndex(width, coord[0], coord[1] + i) :
                     get2DIndex(width, coord[0] + i, coord[1]);
-                if (_boardArray[j]) return false;
+                if (j instanceof Error ||
+                    _boardArray[j])
+                    return false;
             }
             for (let i = 0; i < ship.get.length(); i++) {
                 let j = rotated ?
@@ -58,7 +62,7 @@ function gameboardFactory(width = 10, height = 10) {
             }
             return 'hit';
         },
-        isGameOver: () => { return _shipsRemaining <= 0 }
+        isGameOver: () => { return _shipsRemaining <= 0 },
     }
     return gameboard;
 }
@@ -87,12 +91,29 @@ function playerFactory(name) {
     return player;
 }
 
-function get2DIndex(rowLength = 10, x, y) {
-    if((x[0] || x) >= rowLength){
-        throw new Error('index out of bounds of rowLength')
-    }
-    if (typeof (x) === typeof ([])) return x[0] * rowLength + x[1];
+function get2DIndex(rowLength, x, y) {
+    // if ((x[0] || x) >= rowLength) {
+    //     return new Error('index out of bounds of rowLength')
+    // }
+    // if ((x[0] || x) < 0 ||
+    //     (x[1] || y) < 0)
+    //     return new Error('index can not be negative');
+    // if (typeof (x) === typeof ([])) return x[0] * rowLength + x[1];
+    // else return x * rowLength + y;
+    let a, b;
 
-    else return x * rowLength + y;
+    if (x[0] === undefined) {
+        a = x;
+        b = y;
+    } else {
+        a = x[0];
+        b = x[1];
+    }
+    if (a >= rowLength)
+        return new Error('Index out of bounds of rowLength.');
+    if ((a < 0) ||
+        (b < 0))
+        return new Error('Index can not be negative.');
+    return a * rowLength + b;
 }
-export { shipFactory, gameboardFactory, playerFactory, get2DIndex};
+export { shipFactory, gameboardFactory, playerFactory, get2DIndex };
