@@ -14,7 +14,7 @@ function shipFactory(name, length) {
     return ship;
 }
 
-function gameboardFactory(width = 7, height = 7) {
+function gameboardFactory(width = 10, height = 10) {
     const boardSize = width * height;
     let _shipsRemaining = 0;
     const _boardArray = [];
@@ -50,15 +50,15 @@ function gameboardFactory(width = 7, height = 7) {
             _hitArray[i] = true;
 
             const ship = _boardArray[i];
-            if(!ship) return 'miss';
+            if (!ship) return 'miss';
             ship.hit();
-            if(ship.isSunk()){
+            if (ship.isSunk()) {
                 _shipsRemaining--;
                 return 'sunk';
             }
             return 'hit';
         },
-        isGameOver: ()=>{return _shipsRemaining <= 0}
+        isGameOver: () => { return _shipsRemaining <= 0 }
     }
     return gameboard;
     //private
@@ -71,4 +71,28 @@ function gameboardFactory(width = 7, height = 7) {
     }
 }
 
-export { shipFactory, gameboardFactory };
+function playerFactory(name) {
+    let _games = 0;
+    let _wins = 0;
+    let _streak = 0;
+
+    const player = {
+        get: {
+            name: () => { return name },
+            games: () => { return _games },
+            wins: () => { return _wins },
+            streak: () => { return _streak }
+        },
+        gameWon: (wasWon) => {
+            if (wasWon) {
+                _wins++;
+                _streak++;
+            }
+            else _streak = 0;
+            _games++;
+        }
+    }
+    return player;
+}
+//WORKING HERE -- JUST STARTED MAKING PLAYER FACTORY
+export { shipFactory, gameboardFactory, playerFactory};
