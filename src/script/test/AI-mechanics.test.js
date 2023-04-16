@@ -18,8 +18,12 @@ test('getAiMechanicsObj HARD', () => {
     config().set.difficulty.hard();
 })
 
-function _checkFullCoordBounds(coord, bound){
-    for(let i = 0; i < bound; i++){
-        let coord = ai.get.attackCoords();
+function _checkFullCoordBounds(coord){
+    const xBound = gameboard.get.width();
+    const yBound = gameboard.get.height();
+    for(let x = 0; x < xBound ; x++){
+        for(let y = 0; y < yBound; y++){
+            
+        }
     }
 }

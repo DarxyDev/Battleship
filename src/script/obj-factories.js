@@ -27,6 +27,8 @@ function gameboardFactory(width = 10, height = 10) {
             shipsRemaining: () => { return _shipsRemaining },
             boardArray: () => { return _boardArray },
             hitArray: () => { return _hitArray },
+            width:()=>{return width},
+            height:()=>{return height}
         },
         placeShip: (ship, coord, rotated) => {
             for (let i = 0; i < ship.get.length(); i++) {
