@@ -15,8 +15,8 @@ function shipFactory(name, length) {
 }
 
 function gameboardFactory(width = 10, height = 10) {
-    const boardSize = width * height;
     let _shipsRemaining = 0;
+    const boardSize = width * height;
     const _boardArray = [];
     for (let i = 0; i < boardSize; i++) _boardArray.push(false);
     const _hitArray = [];
@@ -26,7 +26,7 @@ function gameboardFactory(width = 10, height = 10) {
         get: {
             shipsRemaining: () => { return _shipsRemaining },
             boardArray: () => { return _boardArray },
-            _hitArray: () => { return _hitArray },
+            hitArray: () => { return _hitArray },
         },
         placeShip: (ship, coord, rotated) => {
             for (let i = 0; i < ship.get.length(); i++) {
@@ -92,16 +92,7 @@ function playerFactory(name) {
 }
 
 function get2DIndex(rowLength, x, y) {
-    // if ((x[0] || x) >= rowLength) {
-    //     return new Error('index out of bounds of rowLength')
-    // }
-    // if ((x[0] || x) < 0 ||
-    //     (x[1] || y) < 0)
-    //     return new Error('index can not be negative');
-    // if (typeof (x) === typeof ([])) return x[0] * rowLength + x[1];
-    // else return x * rowLength + y;
     let a, b;
-
     if (x[0] === undefined) {
         a = x;
         b = y;
