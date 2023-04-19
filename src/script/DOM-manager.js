@@ -1,4 +1,21 @@
 const domManager = (() => {
+    const _references = {
+        game:{
+            container: document.getElementById('game-container'),
+            gameBox: undefined,
+        }
+    }
+    function getReferences(){
+        return _references;
+    };
+    function addGameBox(){
+        const gameBox = document.createElement('gameBox');
+        gameBox.setAttribute('id','game-box');
+        _references.game.container.appendChild(gameBox);
+        _references.game.gameBox = gameBox;
+        return gameBox;
+    
+    }
     function setElementAspectRatio(element, ratio = 1) {
         const parent = element.parentNode;
         window.addEventListener('resize', _onResize);
@@ -19,7 +36,7 @@ const domManager = (() => {
             element.style.width = newWidth + 'px';
             element.style.height = newHeight + 'px';
         }
-    }
-    return { setElementAspectRatio };
+    };
+    return { getReferences,setElementAspectRatio, addGameBox};
 })();
 export default domManager;
