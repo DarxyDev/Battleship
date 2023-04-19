@@ -37,13 +37,13 @@ test('_getAllAttackCoords',()=>{
         }
     })
     expect(check).toBe(undefined);
-
 })
 test('aiFactory EASY', () => {
     config.set.difficulty.easy();
     const coordArr = _getAllAttackCoords();
     expect(_checkCoordArrBounds(coordArr)).toBe(SUCCESS);
     expect(_checkAllCoordsUnique(coordArr)).toBe(SUCCESS);
+    expect(ai.get.attackCoords()).toBe(false);
     expect(ai.get.attackCoords()).toBe(false);
 })
 test('aiFactory HARD', () => {

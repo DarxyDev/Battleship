@@ -36,10 +36,13 @@ function aiFactory() {
         const height = _gameboard.get.height();
         let x = Math.round(Math.random() * (width - 1));
         let y = Math.round(Math.random() * (height - 1));
+
         if (_prevMoves.length <= 0) return [x, y];
-        if(_prevMoves.length >= height * width) return false;
-        while (_coordWasUsed([x, y],_prevMoves)) {
-            if (Math.random() > .5) x = (x + 1) % width;
+        if (_prevMoves.length >= height * width) return false;
+
+        while (_coordWasUsed([x, y], _prevMoves)) { //not sure I like how this works, might make array of possible moves and 
+            if (Math.random() > .5)                 // remove moves as they are used
+                x = (x + 1) % width;
             else y = (y + 1) % height;
         }
         return [x, y];
