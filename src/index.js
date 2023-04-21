@@ -5,11 +5,11 @@ import domManager from './script/DOM-manager';
 
 const ref = domManager.getReferences();
 //setup gameboard
-createNewGameBox();
 
+
+createNewGameBox();
 //
 function createNewGameBox() {
-    if (ref.game.gameBox) ref.game.gameBox.remove();
     let width = config.get.gameboardSize.width();
     let height = config.get.gameboardSize.height();
     let gameBox = domManager.addGameBox();

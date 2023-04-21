@@ -1,9 +1,25 @@
 :root {
+    /* colors */
     --col-1: #8eadd4;
     --col-2: #adb2f5;
     --col-3: #7377b3;
     --col-4: #48496f;
     --col-5: #02001f;
+
+    /* tints */
+    --tint-dark-low: rgba(0, 0, 0, .25);
+    --tint-dark-med: rgba(0, 0, 0, .5);
+    --tint-dark-high: rgba(0, 0, 0, .75);
+
+    --tint-light-xlow: rgba(255, 255, 255, .15);
+    --tint-light-low: rgba(255, 255, 255, .25);
+    --tint-light-med: rgba(255, 255, 255, .5);
+
+    /* sizes */
+    --header-height: 3rem;
+    --footer-height: 2rem;
+    --default-border-radius: 5px;
+    --default-box-shadow: 1px 1px 1px 1px;
 }
 
 html,
@@ -12,37 +28,61 @@ body {
     width: 100vw;
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--col-5);
-    color:var(--col-1)
+    color: var(--col-1)
 }
 
 body {
     display: grid;
-    grid-template-rows: 3rem minmax(6rem, 1fr) 3rem;
+    grid-template-rows: var(--header-height) minmax(6rem, 1fr) var(--footer-height);
+    position: relative;
 }
 
 header,
 footer {
     background-color: var(--col-4);
     width: 100%;
-    min-height: 3rem;
-    min-width: 100%;
+    height: 100%;
 }
-content{
-    height:100%;
+
+/* header{ height: var(--header-height);}
+footer{height: var(--footer-height);} */
+
+content {
+    height: 100%;
     width: 100%;
-    background-color: white;
-    display:flex;
+    background-color: black;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-#game-container{
-    height:75%;
-    width:75%;
+blackout{
+    background-color: black;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+.hidden {
+    display: none;
+}
+
+#game-container {
+    height: 90%;
     display:flex;
     justify-content: center;
     align-items: center;
+    gap:1rem;
+    position:relative;
 }
-#game-box{
-    display: block;
+
+.game-panel {
     background-color: var(--col-3);
+    min-width:10rem;
+    min-height: 100%;
+    border-radius: var(--default-border-radius);
+}
+
+#game-box {
+    justify-self:center;
+    background-color: var(--col-1);
+    border-radius: var(--default-border-radius);
 }

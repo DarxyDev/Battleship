@@ -1,24 +1,28 @@
 const domManager = (() => {
     const _references = {
-        game:{
+        game: {
             container: document.getElementById('game-container'),
-            gameBox: undefined,
-        }
+            leftPanel: document.getElementById('left-panel'),
+            rightPanel: document.getElementById('right-panel')
+        },
     }
-    function getReferences(){
+    function getReferences() {
         return _references;
     };
-    function addGameBox(){
+
+    function addGameBox() {
+        if (_references.game.gameBox) _references.game.gameBox.remove();
         const gameBox = document.createElement('gameBox');
-        gameBox.setAttribute('id','game-box');
-        _references.game.container.appendChild(gameBox);
+        gameBox.setAttribute('id', 'game-box');
+        _references.game.container.insertBefore(gameBox, document.getElementById('right-panel'));
         _references.game.gameBox = gameBox;
         return gameBox;
-    
+
     }
     function setElementAspectRatio(element, ratio = 1) {
         const parent = element.parentNode;
         window.addEventListener('resize', _onResize);
+        _onResize();//race condition? without second onResize, does not resize correctly
         _onResize();
         function _onResize(e) {
             const width = parent.offsetWidth;
@@ -37,6 +41,6 @@ const domManager = (() => {
             element.style.height = newHeight + 'px';
         }
     };
-    return { getReferences,setElementAspectRatio, addGameBox};
+    return { getReferences, setElementAspectRatio, addGameBox };
 })();
 export default domManager;
