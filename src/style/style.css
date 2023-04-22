@@ -20,7 +20,7 @@
     --footer-height: 2rem;
     --default-border-radius: 5px;
     --default-box-shadow: 1px 1px 1px 1px;
-    --abs-margin:10px;
+    --abs-margin: 10px;
 }
 
 html,
@@ -29,49 +29,148 @@ body {
     width: 100vw;
     font-family: Arial, Helvetica, sans-serif;
 }
-#game-window{
-    position:relative;
-    width:100%;
-    height:100%;
+button{
+    cursor:pointer;
+    border:none;
+    border-radius: var(--default-border-radius);
+    padding:0;
+}
+button:hover{
+    opacity:.75;
+}
+button:active{
+    opacity:.6;
+}
+input{
+    border-radius: var(--default-border-radius);
+    border:none;
+}
+input:focus{
+    outline:none;
+}
+div{
+    border-radius: var(--default-border-radius);
+}
+#game-window {
+    position: relative;
+    width: 100%;
+    height: 100%;
     background-color: var(--col-5);
-    color: var(--col-1)
-}
- /* menu elements */
-#menu-container{
-    position:absolute;
-    background-color:var(--col-4);
-    height:100%;
-    width:100%;
-}
- /* gamespace elements */
-#gamespace-container{
-    position:absolute;
-    height:100%;
-    width:100%;
-}
-.board-container{
-    position: absolute;
-    background-color: var(--tint-light-low);
-    height:75%;
-    width:30%;
-    top:var(--abs-margin);
-}
-#board-container-left{
-    left:var(--abs-margin);
-}
-#board-container-right{
-    right:var(--abs-margin);
-}
-#dialogue-container{
-    position:absolute;
-    width:50%;
-    height: 20%;
-    background-color:var(--tint-light-low);
-    bottom:var(--abs-margin);
-    left:25%;
 }
 
-/* modifiers */
-.hidden{
-    display:none;
+/* ----- menu elements ----- */
+#menu-container {
+    position: absolute;
+    background-color: var(--col-5);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu {
+    border-radius: var(--default-border-radius);
+}
+
+/* player select menu */
+#menu-player-select {
+    box-sizing: border-box;
+    background-color: var(--tint-light-low);
+    height: 80%;
+    width: 80%;
+    padding:10px;
+    display: grid;
+    gap:10px;
+    grid-template-areas:    "p1 p1 p1 .. p2 p2 p2"
+                            "p1 p1 p1 .. p2 p2 p2"
+                            "p1 p1 p1 .. p2 p2 p2"
+                            ".. .. gs gs gs .. ..";
+                            /* ".. .. gs gs gs .. .."; */ 
+}
+
+#player1-select{
+    grid-area: p1;
+}
+#player2-select{
+    grid-area:p2;
+}
+#gameboard-settings{
+    grid-area:gs;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.player-select-container{
+    box-sizing: border-box;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+}
+.player-type-btn{
+    background-color: var(--tint-dark-low);
+    width:50%;
+    height:50%;
+}
+.player-type-header{
+
+    margin:0;
+}
+.player-name-input{
+    text-align: center;
+    width: 40%;
+}
+#start-game-btn{
+    height:80%;
+    width:80%;
+    font-size:1.5em;
+    line-height: 1;
+}
+
+/* ----- gamespace elements ----- */
+#gamespace-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.board-container {
+    position: absolute;
+    background-color: var(--tint-light-low);
+    height: 75%;
+    width: 30%;
+    top: var(--abs-margin);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#board-container-left {
+    left: var(--abs-margin);
+}
+
+#board-container-right {
+    right: var(--abs-margin);
+}
+
+#dialogue-container {
+    position: absolute;
+    width: 50%;
+    height: 20%;
+    background-color: var(--tint-light-low);
+    bottom: var(--abs-margin);
+    left: 25%;
+}
+
+/* ----- modifiers ----- */
+.hidden {
+    display: none;
+}
+
+
+
+/*TEMPORARY*/
+.menu > *{
+    background-color: var(--tint-light-xlow); 
 }
