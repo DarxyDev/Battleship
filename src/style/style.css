@@ -48,6 +48,7 @@ footer {
 footer{height: var(--footer-height);} */
 
 content {
+    position:relative;
     height: 100%;
     width: 100%;
     background-color: black;
@@ -55,34 +56,45 @@ content {
     justify-content: center;
     align-items: center;
 }
-blackout{
-    background-color: black;
-    height:100%;
+.hidden{
+    display:none;
+}
+#gamespace{
+    width:95%;
+    height:95%;
+    background-color:var(--tint-light-xlow);
+    display:grid;
+    gap:1rem;
+    grid-template-areas:    ".. .. ts ts ts .. .."
+                            "ls ls ls .. rs rs rs"
+                            "ls ls ls .. rs rs rs"
+                            "ls ls ls .. rs rs rs"
+}
+section{
+    background-color:var(--tint-light-xlow);
     width:100%;
-    position:absolute;
-}
-.hidden {
-    display: none;
-}
-
-#game-container {
-    height: 90%;
+    height:100%;
     display:flex;
     justify-content: center;
     align-items: center;
-    gap:1rem;
-    position:relative;
 }
-
-.game-panel {
-    background-color: var(--col-3);
-    min-width:10rem;
-    min-height: 100%;
-    border-radius: var(--default-border-radius);
+#top-section{
+    grid-area: ts;
 }
-
-#game-box {
-    justify-self:center;
-    background-color: var(--col-1);
-    border-radius: var(--default-border-radius);
+#left-section{
+    grid-area: ls;
+}
+#right-section{
+    grid-area: rs;
+}
+.aspect-ratio-container{
+    display:flex;
+    height:100%;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    overflow:none;
+}
+gameboard{
+    background-color: red;
 }
