@@ -20,6 +20,7 @@
     --footer-height: 2rem;
     --default-border-radius: 5px;
     --default-box-shadow: 1px 1px 1px 1px;
+    --abs-margin:10px;
 }
 
 html,
@@ -27,74 +28,50 @@ body {
     height: 100vh;
     width: 100vw;
     font-family: Arial, Helvetica, sans-serif;
+}
+#game-window{
+    position:relative;
+    width:100%;
+    height:100%;
     background-color: var(--col-5);
     color: var(--col-1)
 }
-
-body {
-    display: grid;
-    grid-template-rows: var(--header-height) minmax(6rem, 1fr) var(--footer-height);
-    position: relative;
+ /* menu elements */
+#menu-container{
+    position:absolute;
+    background-color:var(--col-4);
+    height:100%;
+    width:100%;
+}
+ /* gamespace elements */
+#gamespace-container{
+    position:absolute;
+    height:100%;
+    width:100%;
+}
+.board-container{
+    position: absolute;
+    background-color: var(--tint-light-low);
+    height:75%;
+    width:30%;
+    top:var(--abs-margin);
+}
+#board-container-left{
+    left:var(--abs-margin);
+}
+#board-container-right{
+    right:var(--abs-margin);
+}
+#dialogue-container{
+    position:absolute;
+    width:50%;
+    height: 20%;
+    background-color:var(--tint-light-low);
+    bottom:var(--abs-margin);
+    left:25%;
 }
 
-header,
-footer {
-    background-color: var(--col-4);
-    width: 100%;
-    height: 100%;
-}
-
-/* header{ height: var(--header-height);}
-footer{height: var(--footer-height);} */
-
-content {
-    position:relative;
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/* modifiers */
 .hidden{
     display:none;
-}
-#gamespace{
-    width:95%;
-    height:95%;
-    background-color:var(--tint-light-xlow);
-    display:grid;
-    gap:1rem;
-    grid-template-areas:    ".. .. ts ts ts .. .."
-                            "ls ls ls .. rs rs rs"
-                            "ls ls ls .. rs rs rs"
-                            "ls ls ls .. rs rs rs"
-}
-section{
-    background-color:var(--tint-light-xlow);
-    width:100%;
-    height:100%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-#top-section{
-    grid-area: ts;
-}
-#left-section{
-    grid-area: ls;
-}
-#right-section{
-    grid-area: rs;
-}
-.aspect-ratio-container{
-    display:flex;
-    height:100%;
-    width:100%;
-    justify-content: center;
-    align-items: center;
-    overflow:none;
-}
-gameboard{
-    background-color: red;
 }
