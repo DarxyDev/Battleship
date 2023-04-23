@@ -1,4 +1,4 @@
-import setupPlayerSelectScene from "../scenes/player-select";
+import playerSelect from "../scenes/player-select";
 
 const domManager = (() => {
     const _references = {
@@ -27,7 +27,7 @@ const domManager = (() => {
     }
     async function init() {
         switchToScene(_references.loadingScene);
-        setupPlayerSelectScene();
+        playerSelect.setupPlayerSelectScene();
         switchToScene(_references.menus.playerSelect.scene);
     }
 
