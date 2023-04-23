@@ -26,9 +26,9 @@ const domManager = (() => {
         },
     }
     async function init() {
-        _switchToScene(_references.loadingScene);
+        switchToScene(_references.loadingScene);
         setupPlayerSelectScene();
-        _switchToScene(_references.menus.playerSelect.scene);
+        switchToScene(_references.menus.playerSelect.scene);
     }
 
     function getReferences() {
@@ -36,14 +36,14 @@ const domManager = (() => {
     };
     //a scene is a reference or array of references that must be hidden/unhidden
     let _currentScene = undefined;
-    function _switchToScene(scene) {
+    function switchToScene(scene) {
         if (_currentScene) _hideElement(_currentScene);
         _currentScene = scene;
         _unhideElement(scene);
     }
     function _hideElement(element) { element.classList.add('hidden'); }
     function _unhideElement(element) { element.classList.remove('hidden'); }
-    return { init, getReferences, };
+    return { init, getReferences, switchToScene };
 })();
 export default domManager;
 

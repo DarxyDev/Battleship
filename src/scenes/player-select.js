@@ -4,16 +4,20 @@ import domManager from "../script/DOM-manager";
 const playerTypeStates = ['human', 'ai-easy', 'ai-medium', 'ai-hard']; //each state must have cooresponding class
 //public
 function setupPlayerSelectScene() {
-    const ref = domManager.getReferences().menus.playerSelect;
-    setEventListeners();
+    const ref = domManager.getReferences()
+    setEventListeners(ref.menus.playerSelect);
 
 
 
-    function setEventListeners() {
-        setPlayerEventListeners(ref.player1);
-        setPlayerEventListeners(ref.player2);
+    function setEventListeners(pSelectRef) {
+        setPlayerEventListeners(pSelectRef.player1);
+        setPlayerEventListeners(pSelectRef.player2);
+        pSelectRef.gameboardSettings.startGameBtn.addEventListener('click',(e)=>{
+            domManager.switchToScene(ref.gamespace.scene)
+            console.log('do other things with collected data')
+        })
 
-        function setPlayerEventListeners(refObj = ref.player1) {
+        function setPlayerEventListeners(refObj = pSelectRef.player1) {
             refObj.typeBtn.addEventListener('click', (e) => {
                 //moves up a state and adds/removes appropriate classes
                 let element = e.target
