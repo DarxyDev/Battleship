@@ -1,13 +1,17 @@
+import setupPlayerSelectScene from "../scenes/player-select";
+
 const domManager = (() => {
     const _references = {
+        loadingScene: document.getElementById('loading-scene'),
         menus: {
             playerSelect: {
-                player1:{
+                scene: document.getElementById('player-select-scene'),
+                player1: {
                     typeBtn: document.getElementById('player1-type-btn'),
                     typeHeader: document.getElementById('player1-type-header'),
                     nameInput: document.getElementById('player1-name-input')
                 },
-                player2:{
+                player2: {
                     typeBtn: document.getElementById('player2-type-btn'),
                     typeHeader: document.getElementById('player2-type-header'),
                     nameInput: document.getElementById('player2-name-input')
@@ -17,16 +21,32 @@ const domManager = (() => {
                 }
             },
         },
+        gamespace: {
+            scene: document.getElementById('gamespace-scene')
+        },
     }
+    async function init() {
+        _switchToScene(_references.loadingScene);
+        setupPlayerSelectScene();
+        _switchToScene(_references.menus.playerSelect.scene);
+    }
+
     function getReferences() {
         return _references;
     };
-
+    //a scene is a reference or array of references that must be hidden/unhidden
+    let _currentScene = undefined;
+    function _switchToScene(scene) {
+        if (_currentScene) _hideElement(_currentScene);
+        _currentScene = scene;
+        _unhideElement(scene);
+    }
     function _hideElement(element) { element.classList.add('hidden'); }
     function _unhideElement(element) { element.classList.remove('hidden'); }
-    return { getReferences,};
+    return { init, getReferences, };
 })();
 export default domManager;
+
 
 // const domManager = (() => {
 //     const _references = {

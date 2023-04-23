@@ -48,9 +48,6 @@ input{
 input:focus{
     outline:none;
 }
-div{
-    border-radius: var(--default-border-radius);
-}
 #game-window {
     position: relative;
     width: 100%;
@@ -59,7 +56,16 @@ div{
 }
 
 /* ----- menu elements ----- */
-#menu-container {
+#loading-scene{
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--tint-dark-high);
+    color:white;
+}
+.menu-container {
     position: absolute;
     background-color: var(--col-5);
     height: 100%;
@@ -67,9 +73,6 @@ div{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.menu {
-    border-radius: var(--default-border-radius);
 }
 
 /* player select menu */
@@ -87,7 +90,6 @@ div{
                             ".. .. gs gs gs .. ..";
                             /* ".. .. gs gs gs .. .."; */ 
 }
-
 #player1-select{
     grid-area: p1;
 }
@@ -112,6 +114,19 @@ div{
     background-color: var(--tint-dark-low);
     width:50%;
     height:50%;
+}
+/* current states: ['human','ai-easy','ai-medium','ai-hard'] */
+.player-type-state-human{
+    background-color:white;
+}
+.player-type-state-ai-easy{
+    background-color: green;
+}
+.player-type-state-ai-medium{
+    background-color: orange;
+}
+.player-type-state-ai-hard{
+    background-color: red;
 }
 .player-type-header{
 
@@ -165,12 +180,12 @@ div{
 
 /* ----- modifiers ----- */
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 
 
 /*TEMPORARY*/
-.menu > *{
+#menu-player-select > * {
     background-color: var(--tint-light-xlow); 
 }

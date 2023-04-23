@@ -7,7 +7,6 @@ import domManager from './script/DOM-manager';
 const ref = domManager.getReferences();
 let sizeRatio = config.get.gameboardSize.width() / config.get.gameboardSize.height();
 
-
-
+domManager.init();
 // domManager.createGameboards(sizeRatio);
 // domManager.switchToPlayer1();

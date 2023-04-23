@@ -10,15 +10,16 @@
 
 <body>
     <div id="game-window">
-        <div id="menu-container" class="">
-            <div id="menu-player-select" class="menu">
+        <div id="loading-scene"><h1>LOADING</h3></div>
+        <div class="menu-container hidden" id="player-select-scene">
+            <div id="menu-player-select">
                 <div id="player1-select" class="player-select-container">
-                    <button class="player-type-btn" id="player1-type-btn"></button>
+                    <button class="player-type-btn player-type-state-human" id="player1-type-btn" state='0'></button>
                     <h3 alt="Type of player" class="player-type-header" id="player1-type-header">Player</h3>
                     <input type="text" name="" id="player1-name-input" class="player-name-input" placeholder="Player 1">
                 </div>
                 <div id="player2-select" class="player-select-container">
-                    <button class="player-type-btn" id="player2-type-btn"></button>
+                    <button class="player-type-btn player-type-state-human" id="player2-type-btn" state='0'></button>
                     <h3 class="player-type-header" id="player2-type-header">Player</h3>
                     <input type="text" name="" id="player2-name-input" class="player-name-input" placeholder="Player 2">
                 </div>
@@ -27,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div id="gamespace-container" class="hidden">
+        <div id="gamespace-scene" class="hidden">
             <div class="board-container" id="board-container-left"></div>
             <div class="board-container" id="board-container-right"></div>
             <div id="dialogue-container"></div>
