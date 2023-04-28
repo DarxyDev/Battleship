@@ -1,12 +1,13 @@
 import './style/normalize.css';
 import './style/style.css';
-import config from './script/config'
-import domManager from './script/DOM-manager';
+import sceneManager from './script/scene-manager';
 
+const main = (async()=>{
+    //init
+    const scenes = sceneManager.getScenes();
+    await scenes.playerSelectScene.initAsync();
+    //
+    sceneManager.loadScene(scenes.playerSelectScene);
+})()
 
-const ref = domManager.getReferences();
-let sizeRatio = config.get.gameboardSize.width() / config.get.gameboardSize.height();
-
-domManager.init();
-// domManager.createGameboards(sizeRatio);
-// domManager.switchToPlayer1();
+console.log('tranfer player-select logic to new object, do not use DOMManager')

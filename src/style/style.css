@@ -143,8 +143,8 @@ input:focus{
     line-height: 1;
 }
 
-/* ----- gamespace elements ----- */
-#gamespace-container {
+/* ----- game elements ----- */
+#game-container {
     position: absolute;
     height: 100%;
     width: 100%;

@@ -21,8 +21,8 @@ const domManager = (() => {
                 }
             },
         },
-        gamespace: {
-            scene: document.getElementById('gamespace-scene')
+        game: {
+            scene: document.getElementById('game-scene')
         },
     }
     async function init() {
