@@ -28,13 +28,13 @@ const players = {
 //scene export obj
 const gameScene = {
     getContainer: ()=>{return _container;},
-    initGameAsync,
+    initAsync,
 }
 
 export default gameScene;
 
 //functions
-async function initGameAsync(player1, player2){
+async function initAsync(player1, player2){
     return new Promise(resolve=>{
         setTimeout(()=>{
             console.log(ref.sectionContainers.left.children[0])

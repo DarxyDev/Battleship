@@ -47,7 +47,7 @@ function setEventListeners() {
         const player1 = _makePlayerObj(ref.player1);
         const player2 = _makePlayerObj(ref.player2);
         sceneManager.loadScene(loadingScene)
-        await gameScene.initGameAsync(player1, player2);
+        await gameScene.initAsync(player1, player2);
         sceneManager.loadScene(gameScene)
     })
 
