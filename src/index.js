@@ -6,6 +6,6 @@ const main = (async()=>{
     //init
     const scenes = sceneManager.getScenes();
     await scenes.playerSelectScene.initAsync();
-    //start
+    // start
     sceneManager.loadScene(scenes.playerSelectScene);
 })()

@@ -1,5 +1,6 @@
 import { aiFactory } from "../script/AI-mechanics";
 import { gameboardFactory } from "../script/obj-factories";
+import domManager from "../script/DOM-manager";
 //vars
 const ref = {
     sectionContainers:{
@@ -36,6 +37,10 @@ export default gameScene;
 async function initGameAsync(player1, player2){
     return new Promise(resolve=>{
         setTimeout(()=>{
+            console.log(ref.sectionContainers.left.children[0])
+            // this is a test, do this again after creating gameboards
+            domManager.setElementAspectRatio(ref.sectionContainers.left.children[0], boardWidth / boardHeight);
+            //
             _setupPlayer(player1);
             _setupPlayer(player2);
             _setupUI();
@@ -59,7 +64,7 @@ async function initGameAsync(player1, player2){
     }
 }
 
-//draw both boards
+//draw both boards for each player
 //setup logic to show/hide board
 //setuplogic for whose board is shown
 

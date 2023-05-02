@@ -144,11 +144,11 @@ input:focus{
 }
 
 /* ----- game elements ----- */
-#game-container {
+/* #game-container {
     position: absolute;
     height: 100%;
     width: 100%;
-}
+} */
 
 .board-container {
     position: absolute;
@@ -176,6 +176,19 @@ input:focus{
     background-color: var(--tint-light-low);
     bottom: var(--abs-margin);
     left: 25%;
+}
+
+.board{
+    background-color:var(--tint-light-low);
+    display:grid;
+    grid-template:  repeat(10, 1fr)/repeat(10,1fr); /*will need to be added in JS if dynamic boards added*/
+}
+.tile{
+    background-color:var(--tint-light-low);
+    box-sizing:border-box;
+    border:2px solid var(--tint-dark-med);
+    width:100%;
+    height:100%;
 }
 
 /* ----- modifiers ----- */
