@@ -1,13 +1,11 @@
-import config from "./config";
-
-function aiFactory() {
+function aiFactory(difficulty = 'easy') {
     let _gameboard;
     const _prevMoves = [];
     const aiObj = {
         get: {
             attackCoords: () => {
                 let coord;
-                switch (config.get.difficulty()) {
+                switch (difficulty) {
                     case 'easy':
                         coord = _getEasyAttackCoords();
                         break;

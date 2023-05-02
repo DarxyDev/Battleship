@@ -27,8 +27,8 @@ function gameboardFactory(width = 10, height = 10) {
             shipsRemaining: () => { return _shipsRemaining },
             boardArray: () => { return _boardArray },
             hitArray: () => { return _hitArray },
-            width:()=>{return width},
-            height:()=>{return height}
+            width: () => { return width },
+            height: () => { return height }
         },
         placeShip: (ship, coord, rotated) => {
             for (let i = 0; i < ship.get.length(); i++) {
@@ -69,7 +69,7 @@ function gameboardFactory(width = 10, height = 10) {
     return gameboard;
 }
 
-function playerFactory(name) {
+function playerFactory(name, type = 'human') {
     let _games = 0;
     let _wins = 0;
     let _streak = 0;
@@ -77,6 +77,7 @@ function playerFactory(name) {
     const player = {
         get: {
             name: () => { return name },
+            type: () => { return type },
             games: () => { return _games },
             wins: () => { return _wins },
             streak: () => { return _streak }

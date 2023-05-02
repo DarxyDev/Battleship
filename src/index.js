@@ -6,8 +6,6 @@ const main = (async()=>{
     //init
     const scenes = sceneManager.getScenes();
     await scenes.playerSelectScene.initAsync();
-    //
+    //start
     sceneManager.loadScene(scenes.playerSelectScene);
 })()
-
-console.log('tranfer player-select logic to new object, do not use DOMManager')

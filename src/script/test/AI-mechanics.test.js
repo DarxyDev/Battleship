@@ -1,5 +1,4 @@
 import { aiFactory, checkCoordUnique } from "../AI-mechanics";
-import config from "../config";
 import { gameboardFactory, shipFactory } from "../obj-factories";
 const SUCCESS = true;
 const FAIL = false;
@@ -21,7 +20,6 @@ test('checkCoordUnique', () => {
     expect(checkCoordUnique([1, 0], [0, 1])).toBe(true);
 })
 test('_getAllAttackCoords',()=>{
-    config.set.difficulty.easy();
     let coordArr = _getAllAttackCoords();
     let width = gameboard.get.width();
     let height = gameboard.get.height();
@@ -39,7 +37,6 @@ test('_getAllAttackCoords',()=>{
     expect(check).toBe(undefined);
 })
 test('aiFactory EASY', () => {
-    config.set.difficulty.easy();
     const coordArr = _getAllAttackCoords();
     expect(_checkCoordArrBounds(coordArr)).toBe(SUCCESS);
     expect(_checkAllCoordsUnique(coordArr)).toBe(SUCCESS);
@@ -47,7 +44,6 @@ test('aiFactory EASY', () => {
     expect(ai.get.attackCoords()).toBe(false);
 })
 test('aiFactory HARD', () => {
-    config.set.difficulty.hard();
 })
 
 function _getAllAttackCoords() {
