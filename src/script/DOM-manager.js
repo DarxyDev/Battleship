@@ -7,46 +7,31 @@ const _templates = {
     mainGame: document.getElementById('main-game_template'),
     endGame: document.getElementById('end-game_template')
 }
-const _scenes = {
-    loading: document.getElementById('loading_scene'),
-}
-let _currentScene = _scenes.loading;
 
-function getScenes() {
-    return _scenes;
+function getContainerFromTemplate(template){
+    return template.content.firstElementChild.cloneNode(true);
 }
-function switchToScene(scene) {
-    _currentScene.remove();
-    _currentScene = scene;
-    _gameWindow.appendChild(scene);
+
+function addElement(element){
+    _gameWindow.appendChild(element);
+}
+function removeElement(element){
+    element.remove();
 }
 
 function initAsync() {
     return new Promise(resolve => {
         setTimeout(() => {
-            _setScenesFromTemplates();
             resolve();
         }, 0)
     })
-
-    //fn
-    function _setScenesFromTemplates() {
-        for (const [key, value] of Object.entries(_templates)) {
-            _scenes[key] = _cloneFromTemplate(value);
-        }
-
-        //fn
-        function _cloneFromTemplate(template) {
-            if (!template.content.firstElementChild) console.log(new Error(`Invalid template: ${template}`))
-            else return template.content.firstElementChild.cloneNode(true);
-        }
-    }
 }
 
 const domManager = {
     initAsync,
-    getScenes,
-    switchToScene,
+    getContainerFromTemplate,
+    addElement,
+    removeElement,
 }
 
 export default domManager;

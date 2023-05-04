@@ -2,11 +2,16 @@ import './style/normalize.css';
 import './style/style.css';
 
 import domManager from './script/DOM-manager';
+import sceneManager from './script/scene-manager';
+
 
 const main = (async()=>{
     //init
     await domManager.initAsync();
-    const scenes = domManager.getScenes();
+    await sceneManager.initAsync();
 
-    domManager.switchToScene(scenes.startGame)
+    const scenes = sceneManager.getScenes();
+    sceneManager.switchToScene(scenes.startGame);
+    await scenes.startGame.scenePromise;
+
 })()

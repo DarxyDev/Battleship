@@ -1,19 +1,20 @@
 import domManager from "../script/DOM-manager";
-const _template = document.getElementById('start-game_template');
+const _template = document.getElementById('template-name_template')
 
 function initAsync() {
     return new Promise(resolve => {
         setTimeout(() => {
-            startGame.container.addEventListener('click', _resolveScene);
+
             resolve();
         }, 0)
     })
 }
 let _resolveScene;
-const startGame = {
+
+const sceneTemplate = {
     container: domManager.getContainerFromTemplate(_template),
     initAsync,
-    scenePromise: new Promise(resolve=>{_resolveScene = resolve;})
+    scenePromise: new Promise(resolve=>{_resolveScene = resolve})
 }
 
-export default startGame;
+export default sceneTemplate;
