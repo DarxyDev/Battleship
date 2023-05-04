@@ -9,7 +9,36 @@
 </head>
 
 <body>
-    <div id="game-window"></div>
+    <div id="game-window">
+        <div id="loading_scene" class="template blackout fl-center">
+            <h1>Loading...</h1>
+        </div>
+
+        <!-- layout templates -->
+        <template id="blackout_template">
+            <div class="template blackout fl-center">
+                <h1 class="blackout_h1"></h1>
+            </div>
+        </template>
+        <template id="start-game_template">
+            <div class="template start-game fl-center">
+                <h1>BattleShip</h1>
+                <h3>Press any button to continue</h3>
+            </div>
+        </template>
+        <template id="player-select_template">
+            <div class="template "></div>
+        </template>
+        <template id="ship-select_template">
+            <div class="template "></div>
+        </template>
+        <template id="main-game_template">
+            <div class="template "></div>
+        </template>
+        <template id="end-game_template">
+            <div class="template "></div>
+        </template>
+    </div>
 </body>
 
 </html>

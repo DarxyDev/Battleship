@@ -6,6 +6,8 @@
     --col-4: #48496f;
     --col-5: #02001f;
 
+    --col-text: white;
+
     /* tints */
     --tint-dark-low: rgba(0, 0, 0, .25);
     --tint-dark-med: rgba(0, 0, 0, .5);
@@ -53,5 +55,26 @@ input:focus{
     width: 100%;
     height: 100%;
     background-color: var(--col-5);
+    color:var(--col-text);
+}
+
+/* templates */
+.template{
+    position:absolute;
+    height:100%;
+    width:100%;
+}
+.blackout{
+    background-color:black;
+}
+.start-game{
+    flex-direction:column;
+    gap:2rem;
+}
+/* generic */
+.fl-center{
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
