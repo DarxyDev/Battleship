@@ -10,7 +10,6 @@ let ref;
 function initAsync() {
     return new Promise(resolve => {
         setTimeout(() => {
-            console.log(playerSelect);
             _setRef();
             _setEventListeners();
             resolve();
@@ -69,22 +68,37 @@ function _setEventListeners() {
         return playerFactory(name, playerTypeStates[typeIndex]);
     }
 }
-function _setRef() {
+function _setRef() { 
     ref = {
         player1: {
-            typeBtn: document.getElementById('player1-type-btn'),
-            typeHeader: document.getElementById('player1-type-header'),
-            nameInput: document.getElementById('player1-name-input')
+            typeBtn: playerSelect.container.querySelector('*#player1-type-btn'),
+            typeHeader: playerSelect.container.querySelector('*#player1-type-header'),
+            nameInput: playerSelect.container.querySelector('*#player1-name-input')
         },
         player2: {
-            typeBtn: document.getElementById('player2-type-btn'),
-            typeHeader: document.getElementById('player2-type-header'),
-            nameInput: document.getElementById('player2-name-input')
+            typeBtn: playerSelect.container.querySelector('*#player2-type-btn'),
+            typeHeader: playerSelect.container.querySelector('*#player2-type-header'),
+            nameInput: playerSelect.container.querySelector('*#player2-name-input')
         },
         gameboardSettings: {
-            startGameBtn: document.getElementById('start-game-btn')
+            startGameBtn: playerSelect.container.querySelector('*#start-game-btn')
         }
     }
+    // ref = {
+    //     player1: {
+    //         typeBtn: document.getElementById('player1-type-btn'),
+    //         typeHeader: document.getElementById('player1-type-header'),
+    //         nameInput: document.getElementById('player1-name-input')
+    //     },
+    //     player2: {
+    //         typeBtn: document.getElementById('player2-type-btn'),
+    //         typeHeader: document.getElementById('player2-type-header'),
+    //         nameInput: document.getElementById('player2-name-input')
+    //     },
+    //     gameboardSettings: {
+    //         startGameBtn: document.getElementById('start-game-btn')
+    //     }
+    // }
 }
 
 console.log('instead of making playerobj and changing scene -> resolve promise with player data')
