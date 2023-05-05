@@ -4,7 +4,7 @@ const _template = document.getElementById('start-game_template');
 function initAsync() {
     return new Promise(resolve => {
         setTimeout(() => {
-            startGame.container.addEventListener('click', _resolveScene);
+            domManager.addEventListeners(startGame.container, 'click', _resolveScene);
             resolve();
         }, 0)
     })

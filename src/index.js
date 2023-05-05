@@ -13,5 +13,6 @@ const main = (async()=>{
     const scenes = sceneManager.getScenes();
     sceneManager.switchToScene(scenes.startGame);
     await scenes.startGame.scenePromise;
+    sceneManager.switchToScene(scenes.playerSelect)
 
 })()

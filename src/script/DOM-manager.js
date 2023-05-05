@@ -8,15 +8,22 @@ const _templates = {
     endGame: document.getElementById('end-game_template')
 }
 
-function getContainerFromTemplate(template){
+function getContainerFromTemplate(template) {
     return template.content.firstElementChild.cloneNode(true);
 }
 
-function addElement(element){
+function addElement(element) {
     _gameWindow.appendChild(element);
 }
-function removeElement(element){
+function removeElement(element) {
     element.remove();
+}
+function addEventListeners(element, eventArray, callback) {
+    if (!Array.isArray(eventArray))
+        eventArray = [eventArray];
+    eventArray.forEach(event => {
+        element.addEventListener(event, callback);
+    })
 }
 
 function initAsync() {
@@ -32,6 +39,7 @@ const domManager = {
     getContainerFromTemplate,
     addElement,
     removeElement,
+    addEventListeners,
 }
 
 export default domManager;

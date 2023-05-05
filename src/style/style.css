@@ -31,50 +31,131 @@ body {
     width: 100vw;
     font-family: Arial, Helvetica, sans-serif;
 }
-button{
-    cursor:pointer;
-    border:none;
+
+button {
+    cursor: pointer;
+    border: none;
     border-radius: var(--default-border-radius);
-    padding:0;
+    padding: 0;
 }
-button:hover{
-    opacity:.75;
+
+button:hover {
+    opacity: .75;
 }
-button:active{
-    opacity:.6;
+
+button:active {
+    opacity: .6;
 }
-input{
+
+input {
     border-radius: var(--default-border-radius);
-    border:none;
+    border: none;
 }
-input:focus{
-    outline:none;
+
+input:focus {
+    outline: none;
 }
+
 #game-window {
     position: relative;
     width: 100%;
     height: 100%;
     background-color: var(--col-5);
-    color:var(--col-text);
+    color: var(--col-text);
 }
 
 /* templates */
-.template{
-    position:absolute;
-    height:100%;
-    width:100%;
+.template {
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }
-.blackout{
-    background-color:black;
+
+.blackout {
+    background-color: black;
 }
-.start-game{
-    flex-direction:column;
-    gap:2rem;
+
+.start-game {
+    flex-direction: column;
+    gap: 2rem;
 }
-/* generic */
-.fl-center{
+
+.player-select {
+    box-sizing: border-box;
+    background-color: var(--col-5);
+    border-radius: var(--default-border-radius);
+    height: 90%;
+    width: 90%;
+    padding: 10px;
+    display: grid;
+    gap: 10px;
+    grid-template-areas: "p1 p1 p1 .. p2 p2 p2"
+        "p1 p1 p1 .. p2 p2 p2"
+        "p1 p1 p1 .. p2 p2 p2"
+        ".. .. gs gs gs .. ..";
+}
+.player-select > div{
+    background-color: var(--tint-light-xlow);
+}
+#player1-select{
+    grid-area: p1;
+}
+#player2-select{
+    grid-area:p2;
+}
+#gameboard-settings{
+    grid-area:gs;
     display:flex;
     justify-content: center;
     align-items: center;
 }
+.player-select-container{
+    box-sizing: border-box;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+}
+.player-type-btn{
+    background-color: var(--tint-dark-low);
+    width:50%;
+    height:50%;
+}
+/* current states: ['human','ai-easy','ai-medium','ai-hard'] */
+.player-type-state-human{
+    background-color:white;
+}
+.player-type-state-ai-easy{
+    background-color: green;
+}
+.player-type-state-ai-medium{
+    background-color: orange;
+}
+.player-type-state-ai-hard{
+    background-color: red;
+}
+.player-type-header{
 
+    margin:0;
+}
+.player-name-input{
+    text-align: center;
+    width: 40%;
+}
+#start-game-btn{
+    height:80%;
+    width:80%;
+    font-size:1.5em;
+    line-height: 1;
+}
+/* generic */
+.fl-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.darken-med {
+    background-color: var(--tint-dark-med);
+}
