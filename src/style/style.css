@@ -80,7 +80,7 @@ input:focus {
     gap: 2rem;
 }
 /*  */
-.player-select {
+.player-select, .ship-select {
     box-sizing: border-box;
     background-color: var(--col-5);
     border-radius: var(--default-border-radius);
@@ -95,22 +95,22 @@ input:focus {
         "p1 p1 p1 .. p2 p2 p2"
         ".. .. gs gs gs .. ..";
 }
-.player-select > div{
+.player-select, .ship-select > div{
     background-color: var(--tint-light-xlow);
 }
-#player1-select{
+#player1-select, #ship-window{
     grid-area: p1;
 }
-#player2-select{
+#player2-select, #board-window{
     grid-area:p2;
 }
-#gameboard-settings{
+#gameboard-settings, #ship-select-menu{
     grid-area:gs;
     display:flex;
     justify-content: center;
     align-items: center;
 }
-.player-select-container{
+.player-select-container, .ship-select-container{
     box-sizing: border-box;
     display:flex;
     flex-direction: column;
@@ -124,7 +124,15 @@ input:focus {
     height:50%;
 }
 /*  */
-.ship-select{
+/* .ship-select is declared where .player-select is */
+
+#ship-window{
+
+}
+#board-window{
+
+}
+#ship-select-menu{
 
 }
 /* current states: ['human','ai-easy','ai-medium','ai-hard'] */
