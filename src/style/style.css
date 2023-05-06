@@ -95,7 +95,7 @@ input:focus {
         "p1 p1 p1 .. p2 p2 p2"
         ".. .. gs gs gs .. ..";
 }
-.player-select, .ship-select > div{
+.player-select > div, .ship-select > div{
     background-color: var(--tint-light-xlow);
 }
 #player1-select, #ship-window{
