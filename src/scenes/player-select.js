@@ -21,7 +21,7 @@ let _resolveScene;
 const playerSelect = {
     container: domManager.getContainerFromTemplate(_template),
     initAsync,
-    scenePromise: new Promise(resolve => { _resolveScene = resolve })
+    getPlayerSettingsPromise: new Promise(resolve => { _resolveScene = resolve })
 }
 
 export default playerSelect;
@@ -31,13 +31,19 @@ function _setEventListeners() {
     _setPlayerEventListeners(ref.player1);
     _setPlayerEventListeners(ref.player2);
     ref.gameboardSettings.startGameBtn.addEventListener('click', async (e) => {
-        const gameScene = sceneManager.getScenes().gameScene;
-        const loadingScene = sceneManager.getScenes().loadingScene;
-        const player1 = _makePlayerObj(ref.player1);
-        const player2 = _makePlayerObj(ref.player2);
-        sceneManager.loadScene(loadingScene)
-        await gameScene.initAsync(player1, player2);
-        sceneManager.loadScene(gameScene)
+        const playerInfo = {
+            player1:_setPlayerInfo(ref.player1),
+            player2:_setPlayerInfo(ref.player2),
+        }
+        _resolveScene(playerInfo);
+        //fn
+        function _setPlayerInfo(playerRef){
+            let name = playerRef.nameInput.value;
+            const playerState = playerRef.typeBtn.getAttribute('state');
+            let type = playerTypeStates[playerState];
+            let difficulty = type.slice(3); 
+            return {name, type, difficulty}
+        }
     })
 
     function _setPlayerEventListeners(refObj) {
@@ -84,21 +90,4 @@ function _setRef() {
             startGameBtn: playerSelect.container.querySelector('*#start-game-btn')
         }
     }
-    // ref = {
-    //     player1: {
-    //         typeBtn: document.getElementById('player1-type-btn'),
-    //         typeHeader: document.getElementById('player1-type-header'),
-    //         nameInput: document.getElementById('player1-name-input')
-    //     },
-    //     player2: {
-    //         typeBtn: document.getElementById('player2-type-btn'),
-    //         typeHeader: document.getElementById('player2-type-header'),
-    //         nameInput: document.getElementById('player2-name-input')
-    //     },
-    //     gameboardSettings: {
-    //         startGameBtn: document.getElementById('start-game-btn')
-    //     }
-    // }
 }
-
-console.log('instead of making playerobj and changing scene -> resolve promise with player data')

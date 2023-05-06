@@ -3,17 +3,32 @@ import './style/style.css';
 
 import domManager from './script/DOM-manager';
 import sceneManager from './script/scene-manager';
+import { playerFactory } from './script/obj-factories';
+import { aiFactory } from './script/AI-mechanics';
 
-console.log('use queryselector on page container to get references');
+const players = {}
 const main = (async()=>{
     //init
-    console.log(document.getElementById('player2-select'))
     await domManager.initAsync();
     await sceneManager.initAsync();
 
     const scenes = sceneManager.getScenes();
+
     sceneManager.switchToScene(scenes.startGame);
     await scenes.startGame.scenePromise;
-    sceneManager.switchToScene(scenes.playerSelect)
+
+    sceneManager.switchToScene(scenes.playerSelect);
+    const playersInfo = await scenes.playerSelect.getPlayerSettingsPromise;
+    players.player1 = _makePlayerObj(playersInfo.player1);
+    players.player2 = _makePlayerObj(playersInfo.player2);
+    console.log('make ship select scene using players');
+
+
 
 })()
+
+function _makePlayerObj(playerInfo){
+    const playerObj = playerFactory(playerInfo.name, playerInfo.type);
+    if(playerInfo.type !== 'human') playerObj.ai = aiFactory(playerInfo.difficulty);
+    return playerObj;
+}
