@@ -21,9 +21,8 @@ const main = (async()=>{
     const playersInfo = await scenes.playerSelect.getPlayerSettingsPromise;
     players.player1 = _makePlayerObj(playersInfo.player1);
     players.player2 = _makePlayerObj(playersInfo.player2);
-    console.log('make ship select scene using players');
 
-
+    sceneManager.switchToScene(scenes.shipSelect)
 
 })()
 

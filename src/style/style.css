@@ -74,12 +74,12 @@ input:focus {
 .blackout {
     background-color: black;
 }
-
+/*  */
 .start-game {
     flex-direction: column;
     gap: 2rem;
 }
-
+/*  */
 .player-select {
     box-sizing: border-box;
     background-color: var(--col-5);
@@ -89,7 +89,8 @@ input:focus {
     padding: 10px;
     display: grid;
     gap: 10px;
-    grid-template-areas: "p1 p1 p1 .. p2 p2 p2"
+    grid-template-areas: 
+        "p1 p1 p1 .. p2 p2 p2"
         "p1 p1 p1 .. p2 p2 p2"
         "p1 p1 p1 .. p2 p2 p2"
         ".. .. gs gs gs .. ..";
@@ -121,6 +122,10 @@ input:focus {
     background-color: var(--tint-dark-low);
     width:50%;
     height:50%;
+}
+/*  */
+.ship-select{
+
 }
 /* current states: ['human','ai-easy','ai-medium','ai-hard'] */
 .player-type-state-human{

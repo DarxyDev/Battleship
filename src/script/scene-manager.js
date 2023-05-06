@@ -2,11 +2,13 @@ import domManager from "./DOM-manager";
 import loading from "../scenes/loading";
 import startGame from "../scenes/start-game";
 import playerSelect from "../scenes/player-select";
+import shipSelect from "../scenes/ship-select";
 
 const scenes = {
     loading,
     startGame,
     playerSelect,
+    shipSelect
 }
 function getScenes() { return scenes };
 
