@@ -1,4 +1,5 @@
 import domManager from "../script/DOM-manager";
+import pieces from "../script/game-pieces";
 const _template = document.getElementById('ship-select_template')
 
 function initAsync() {

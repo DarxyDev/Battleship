@@ -1,4 +1,4 @@
-//add sceneTemplate to scene-manager.js
+//add sceneTemplate to scene-manager.js and dom-manager.js
 
 import domManager from "../script/DOM-manager";
 const _template = document.getElementById('template-name_template')

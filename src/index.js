@@ -3,7 +3,7 @@ import './style/style.css';
 
 import domManager from './script/DOM-manager';
 import sceneManager from './script/scene-manager';
-import { playerFactory } from './script/obj-factories';
+import playerFactory from './script/player-factory';
 import { aiFactory } from './script/AI-mechanics';
 
 const players = {}

@@ -1,19 +1,3 @@
-function shipFactory(name, length) {
-    const _name = name;
-    const _length = length;
-    let _hits = 0;
-
-    const ship = {
-        get: {
-            name: () => { return _name },
-            length: () => { return _length }
-        },
-        hit: () => { _hits++; },
-        isSunk: () => { return (_hits >= _length) }
-    }
-    return ship;
-}
-
 function gameboardFactory(width = 10, height = 10) {
     let _shipsRemaining = 0;
     const boardSize = width * height;
@@ -69,29 +53,20 @@ function gameboardFactory(width = 10, height = 10) {
     return gameboard;
 }
 
-function playerFactory(name, type = 'human') {
-    let _games = 0;
-    let _wins = 0;
-    let _streak = 0;
+function shipFactory(name, length) {
+    const _name = name;
+    const _length = length;
+    let _hits = 0;
 
-    const player = {
+    const ship = {
         get: {
-            name: () => { return name },
-            type: () => { return type },
-            games: () => { return _games },
-            wins: () => { return _wins },
-            streak: () => { return _streak }
+            name: () => { return _name },
+            length: () => { return _length }
         },
-        gameWon: (wasWon) => {
-            if (wasWon) {
-                _wins++;
-                _streak++;
-            }
-            else _streak = 0;
-            _games++;
-        }
+        hit: () => { _hits++; },
+        isSunk: () => { return (_hits >= _length) }
     }
-    return player;
+    return ship;
 }
 
 function get2DIndex(rowLength, x, y) {
@@ -110,4 +85,3 @@ function get2DIndex(rowLength, x, y) {
         return new Error('Index can not be negative.');
     return a * rowLength + b;
 }
-export { shipFactory, gameboardFactory, playerFactory, get2DIndex };
