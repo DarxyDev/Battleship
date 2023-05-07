@@ -14,13 +14,14 @@ const main = (async()=>{
 
     const scenes = sceneManager.getScenes();
     
-    sceneManager.switchToScene(scenes.startGame);
-    await scenes.startGame.scenePromise;
+    // sceneManager.switchToScene(scenes.startGame);
+    // await scenes.startGame.scenePromise;
 
-    sceneManager.switchToScene(scenes.playerSelect);
-    const playersInfo = await scenes.playerSelect.getPlayerSettingsPromise;
-    players.player1 = _makePlayerObj(playersInfo.player1);
-    players.player2 = _makePlayerObj(playersInfo.player2);
+    // sceneManager.switchToScene(scenes.playerSelect);
+    // const playersInfo = await scenes.playerSelect.getPlayerSettingsPromise;
+    // players.player1 = _makePlayerObj(playersInfo.player1);
+    // players.player2 = _makePlayerObj(playersInfo.player2);
+    console.log('skipping to shipSelect')
 
     sceneManager.switchToScene(scenes.shipSelect)
 

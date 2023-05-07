@@ -16,6 +16,7 @@ async function onLoadAsync() {
     return new Promise(resolve => {
         setTimeout(() => {
             console.log('draw gameboard, do stuff, in the end return gameboardObj for each player');
+            console.log('might need to change #board-window to .board-window')
             resolve();
         }, 0)
     })

@@ -139,12 +139,30 @@ input:focus {
 }
 #board-window{
     grid-area:bw;
+    padding:10px;
 }
 #ship-select-menu{
     grid-area:sm;
 }
 .gameboard{
-    
+    width:100%;
+    height:100%;
+    border:2px solid var(--tint-light-med);
+    border-radius: var(--default-border-radius);
+    display: grid;
+    grid-template: repeat(10,1fr)/repeat(10,1fr);
+    background-color:var(--tint-dark-low);
+}
+.tile{
+    cursor:pointer;
+    box-sizing: border-box;
+    border:2px solid var(--tint-light-med);
+}
+.tile:hover{
+    background-color: var(--tint-light-xlow);
+}
+.tile:active{
+    background-color: var(--tint-light-low);
 }
 /* current states: ['human','ai-easy','ai-medium','ai-hard'] */
 .player-type-state-human{
