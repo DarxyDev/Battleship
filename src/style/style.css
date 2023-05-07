@@ -136,6 +136,14 @@ input:focus {
 }
 #ship-window{
     grid-area:sw;
+    padding:10px;
+}
+#ship-window-container{
+    height:100%;
+    width:100%;
+    border:4px solid var(--tint-light-med);
+    border-radius: var(--default-border-radius);
+    background-color: var(--tint-dark-low);
 }
 #board-window{
     grid-area:bw;
