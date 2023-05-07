@@ -15,4 +15,4 @@ function _addPiece(name, length, img){
         img: img
     }
     pieces.push(piece);
-}
+};

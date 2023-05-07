@@ -143,6 +143,9 @@ input:focus {
 #ship-select-menu{
     grid-area:sm;
 }
+.gameboard{
+    
+}
 /* current states: ['human','ai-easy','ai-medium','ai-hard'] */
 .player-type-state-human{
     background-color:white;

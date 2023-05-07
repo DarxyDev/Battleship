@@ -85,3 +85,10 @@ function get2DIndex(rowLength, x, y) {
         return new Error('Index can not be negative.');
     return a * rowLength + b;
 }
+
+function createDOMGameboard(width = 10, height = 10){
+    const gameboard = document.createElement('div');
+    gameboard.classList.add('gameboard');
+}
+
+export {gameboardFactory, shipFactory, get2DIndex, createDOMGameboard};

@@ -13,9 +13,14 @@ const scenes = {
 function getScenes() { return scenes };
 
 let _currentScene = scenes.loading;
-function switchToScene(scene) {
+async function switchToScene(scene) {
     domManager.removeElement(_currentScene.container);
     _currentScene = scene;
+    if (scene.onLoadAsync) {
+        domManager.addElement(loading.container);
+        await scene.onLoadAsync();
+        domManager.removeElement(loading.container);
+    }
     domManager.addElement(scene.container);
 }
 
