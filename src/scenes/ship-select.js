@@ -1,5 +1,6 @@
 import domManager from "../script/DOM-manager";
 import pieces from "../script/game-pieces";
+
 const _template = document.getElementById('ship-select_template');
 const container = domManager.getContainerFromTemplate(_template);
 const ref = { shipWindow: {}, boardWindow: {}, menu: {} };
@@ -16,7 +17,15 @@ async function onLoadAsync() {
     return new Promise(resolve => {
         setTimeout(() => {
             console.log('draw gameboard, do stuff, in the end return gameboardObj for each player');
-            console.log('might need to change #board-window to .board-window')
+            console.log('might need to change #board-window to .board-window');
+            // console.log('')
+            // const gameboardDOM = document.createElement('div');
+            // gameboardDOM.classList.add('gameboard');
+            // //test
+            // const testIMG = pieces[0].image;
+            // testIMG.classList.add('test-ship');
+            // ref.shipWindow.container.appendChild(testIMG);
+            // //endtest
             resolve();
         }, 0)
     })
@@ -34,6 +43,6 @@ export default shipSelect;
 
 function _setRefs() {
     ref.boardWindow.container = container.querySelector("*#board-window");
-    ref.shipWindow.container = container.querySelector("*#ship-window");
+    ref.shipWindow.container = container.querySelector("*#ship-window-container");
     ref.menu.container = container.querySelector('#ship-select-menu');
 }

@@ -209,3 +209,11 @@ input:focus {
 .darken-med {
     background-color: var(--tint-dark-med);
 }
+
+
+
+
+.test-ship{
+    height:100px;
+    width:100px;
+}
