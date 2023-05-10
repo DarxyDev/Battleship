@@ -18,6 +18,8 @@ export default pieces;
 function _addPiece(name, length, img){
     const image = new Image();
     image.src = img;
+    image.setAttribute('preserveAspectRatio', 'none');
+    console.log(image)
     let piece = {
         name,
         length,

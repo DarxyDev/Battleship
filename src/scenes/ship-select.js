@@ -27,8 +27,12 @@ async function onLoadAsync() {
             domManager.setElementAspectRatio(board);
             pieces.forEach(ship =>{
                 const shipSVG = ship.image;
-                shipSVG.classList.add('test-ship');
-                ref.shipWindow.container.appendChild(shipSVG);
+                shipSVG.classList.add('ship');
+                const shipContainer = document.createElement('div');
+                shipContainer.appendChild(shipSVG);
+                shipContainer.classList.add('ship-container');
+                ref.shipWindow.container.appendChild(shipContainer);
+                //domManager.setElementAspectRatio(shipSVG, ship.length)
             })
 
             //endtest
