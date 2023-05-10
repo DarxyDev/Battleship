@@ -89,6 +89,16 @@ function get2DIndex(rowLength, x, y) {
 function createDOMGameboard(width = 10, height = 10){
     const gameboard = document.createElement('div');
     gameboard.classList.add('gameboard');
+    for(let col = 0; col < height; col++){
+        for(let row = 0; row < width; row++){
+            const tile = document.createElement('div');
+            tile.classList.add('tile');
+            tile.setAttribute('row', row);
+            tile.setAttribute('column', col);
+            gameboard.appendChild(tile);
+        }
+    }
+    return gameboard;
 }
 
 export {gameboardFactory, shipFactory, get2DIndex, createDOMGameboard};

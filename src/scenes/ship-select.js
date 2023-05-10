@@ -1,5 +1,6 @@
 import domManager from "../script/DOM-manager";
 import pieces from "../script/game-pieces";
+import { createDOMGameboard } from "../script/gameboard-manager";
 
 const _template = document.getElementById('ship-select_template');
 const container = domManager.getContainerFromTemplate(_template);
@@ -18,6 +19,9 @@ async function onLoadAsync() {
         setTimeout(() => {
             console.log('draw gameboard, do stuff, in the end return gameboardObj for each player');
             console.log('might need to change #board-window to .board-window');
+            const gameboardDOM = createDOMGameboard();
+            ref.boardWindow.container.appendChild(gameboardDOM);
+            domManager.setElementAspectRatio(gameboardDOM);
             //test
             const board = ref.boardWindow.container.querySelector('div.gameboard');
             domManager.setElementAspectRatio(board);
