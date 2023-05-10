@@ -128,22 +128,22 @@ input:focus {
 /*  */
 /* .ship-select also where .player-select is */
 .ship-select{
-    grid-template-areas: 
+    /* grid-template-areas: 
     "sw sw sw bw bw bw"
     "sw sw sw bw bw bw"
     "sw sw sw bw bw bw"
-    ".. sm sm sm sm ..";
+    ".. sm sm sm sm .."; */
+    grid-template: minmax(0,75%) minmax(0,25%) / minmax(0,50%) minmax(0,50%);
+    overflow:hidden;
+    box-sizing:border-box;
 }
-#ship-window{
-    grid-area:sw;
-    padding:10px;
-}
-#board-window{
-    grid-area:bw;
+#ship-window, #board-window{
     padding:10px;
 }
 #ship-select-menu{
-    grid-area:sm;
+    grid-column:span 2;
+    width:50%;
+    margin: 0 auto;
 }
 
 #ship-window-container{
@@ -154,6 +154,8 @@ input:focus {
     box-sizing:border-box;
     border-radius: var(--default-border-radius);
     background-color: var(--tint-dark-low);
+    display:flex;
+    flex-wrap:wrap;
 }
 .gameboard{
     width:100%;

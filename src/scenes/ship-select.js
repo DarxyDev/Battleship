@@ -18,12 +18,9 @@ async function onLoadAsync() {
         setTimeout(() => {
             console.log('draw gameboard, do stuff, in the end return gameboardObj for each player');
             console.log('might need to change #board-window to .board-window');
-            // const gameboardDOM = document.createElement('div');
-            // gameboardDOM.classList.add('gameboard');
-            // //test
-            // const testIMG = pieces[0].image;
-            // testIMG.classList.add('test-ship');
-            // ref.shipWindow.container.appendChild(testIMG);
+            //test
+            const board = ref.boardWindow.container.querySelector('div.gameboard');
+            domManager.setElementAspectRatio(board);
             pieces.forEach(ship =>{
                 const shipSVG = ship.image;
                 shipSVG.classList.add('test-ship');
@@ -51,3 +48,6 @@ function _setRefs() {
     ref.shipWindow.container = container.querySelector("*#ship-window-container");
     ref.menu.container = container.querySelector('#ship-select-menu');
 }
+
+
+
