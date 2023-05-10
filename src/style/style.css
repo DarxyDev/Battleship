@@ -138,19 +138,22 @@ input:focus {
     grid-area:sw;
     padding:10px;
 }
-#ship-window-container{
-    height:100%;
-    width:100%;
-    border:4px solid var(--tint-light-med);
-    border-radius: var(--default-border-radius);
-    background-color: var(--tint-dark-low);
-}
 #board-window{
     grid-area:bw;
     padding:10px;
 }
 #ship-select-menu{
     grid-area:sm;
+}
+
+#ship-window-container{
+    height:100%;
+    width:100%;
+    padding:10px;
+    border:4px solid var(--tint-light-med);
+    box-sizing:border-box;
+    border-radius: var(--default-border-radius);
+    background-color: var(--tint-dark-low);
 }
 .gameboard{
     width:100%;
@@ -212,7 +215,7 @@ input:focus {
 
 
 
-
+/*  */ /*  */
 .test-ship{
     height:100px;
     width:100px;

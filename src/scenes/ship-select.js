@@ -18,14 +18,19 @@ async function onLoadAsync() {
         setTimeout(() => {
             console.log('draw gameboard, do stuff, in the end return gameboardObj for each player');
             console.log('might need to change #board-window to .board-window');
-            // console.log('')
             // const gameboardDOM = document.createElement('div');
             // gameboardDOM.classList.add('gameboard');
             // //test
             // const testIMG = pieces[0].image;
             // testIMG.classList.add('test-ship');
             // ref.shipWindow.container.appendChild(testIMG);
-            // //endtest
+            pieces.forEach(ship =>{
+                const shipSVG = ship.image;
+                shipSVG.classList.add('test-ship');
+                ref.shipWindow.container.appendChild(shipSVG);
+            })
+
+            //endtest
             resolve();
         }, 0)
     })
