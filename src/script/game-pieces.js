@@ -5,7 +5,7 @@ import battleshipSVG from "../img/yacht.svg";
 import carrierSVG from "../img/cruiseshiplg.svg";
 
 
-const pieces = [];
+const shipPieces = [];
 
 _addPiece('Destroyer', 2, destroyerSVG);
 _addPiece('Submarine', 3, submarineSVG);
@@ -13,17 +13,16 @@ _addPiece('Cruiser', 3, cruiserSVG);
 _addPiece('Battleship', 4, battleshipSVG);
 _addPiece('Carrier', 5, carrierSVG);
 
-export default pieces;
+export default shipPieces;
 
 function _addPiece(name, length, img){
     const image = new Image();
     image.src = img;
     image.setAttribute('preserveAspectRatio', 'none');
-    console.log(image)
     let piece = {
         name,
         length,
         image,
     }
-    pieces.push(piece);
+    shipPieces.push(piece);
 };

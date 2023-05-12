@@ -1,3 +1,5 @@
+import domManager from "./DOM-manager";
+
 function gameboardFactory(width = 10, height = 10) {
     let _shipsRemaining = 0;
     const boardSize = width * height;
@@ -89,8 +91,8 @@ function get2DIndex(rowLength, x, y) {
 function createDOMGameboard(width = 10, height = 10){
     const gameboard = document.createElement('div');
     gameboard.classList.add('gameboard');
-    for(let col = 0; col < height; col++){
-        for(let row = 0; row < width; row++){
+    for(let row = 0; row < height; row++){
+        for(let col = 0; col < width; col++){
             const tile = document.createElement('div');
             tile.classList.add('tile');
             tile.setAttribute('row', row);
